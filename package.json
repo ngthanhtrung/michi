@@ -1,0 +1,55 @@
+{
+  "name": "michi",
+  "version": "0.0.1",
+  "description": "Simple URL router",
+  "author": "Meo <i@meo.guru> (http://meo.guru)",
+  "keywords": [
+    "router",
+    "routing"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MeoGuru/michi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MeoGuru/michi/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://en.wikipedia.org/wiki/MIT_License"
+    }
+  ],
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "qs": "~0.6.6",
+    "shien": "~0.0.3"
+  },
+  "devDependencies": {
+    "matchdep": "~0.3.0",
+    "grunt": "~0.4.3",
+    "grunt-contrib-jshint": "~0.8.0",
+    "mocha": "~1.17.1",
+    "chai": "~1.9.0",
+    "blanket": "~1.1.6",
+    "travis-cov": "~0.2.5",
+    "grunt-mocha-test": "~0.9.4"
+  },
+  "main": "./lib/michi.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "engines": [
+    {
+      "node": ">= 0.10.0"
+    }
+  ],
+  "config": {
+    "blanket": {
+      "pattern": "lib"
+    },
+    "travis-cov": {
+      "threshold": 90
+    }
+  }
+}
