@@ -6,10 +6,7 @@ var path = require('path'),
 module.exports = function (grunt) {
     /* jshint scripturl: true */
 
-    // Load all grunt tasks
-    require('matchdep')
-        .filterDev('grunt-*')
-        .forEach(grunt.loadNpmTasks);
+    require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
         jshint: {
@@ -18,7 +15,7 @@ module.exports = function (grunt) {
             },
             all: [
                 '{lib,test}/**/*.js',
-                'Gruntfile.js'
+                'Gruntfile.js',
             ]
         },
         mochaTest: {
@@ -30,10 +27,7 @@ module.exports = function (grunt) {
                         });
                     }
                 },
-                src: [
-                    'test/**/*.js',
-                    '!test/assets/**'
-                ]
+                src: [ 'test/**/*.js' ]
             },
             'htmlCov': {
                 options: {
@@ -41,19 +35,13 @@ module.exports = function (grunt) {
                     quiet: true,
                     captureFile: 'coverage.html'
                 },
-                src: [
-                    'test/**/*.js',
-                    '!test/assets/**'
-                ]
+                src: [ 'test/**/*.js' ]
             },
             'travisCov': {
                 options: {
                     reporter: 'travis-cov'
                 },
-                src: [
-                    'test/**/*.js',
-                    '!test/assets/**'
-                ]
+                src: [ 'test/**/*.js' ]
             }
         }
     });
@@ -82,8 +70,6 @@ module.exports = function (grunt) {
         'coverage:after'
     ]);
 
-    grunt.registerTask('default', 'Run tests and build', [
-        'test'
-    ]);
+    grunt.registerTask('default', [ 'test' ]);
 
 };
