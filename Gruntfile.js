@@ -35,13 +35,35 @@ module.exports = function (grunt) {
                     quiet: true,
                     captureFile: 'coverage.html'
                 },
-                src: [ 'test/**/*.js' ]
+                src: '<%= mochaTest.all.src %>'
             },
             'travisCov': {
                 options: {
                     reporter: 'travis-cov'
                 },
-                src: [ 'test/**/*.js' ]
+                src: '<%= mochaTest.all.src %>'
+            }
+        },
+        clean: {
+            dist: 'dist'
+        },
+        mkdir: {
+            dist: '<%= clean.dist %>'
+        },
+        umd: {
+            qs: {
+                src: 'node_modules/qs/index.js',
+                dest: '<%= clean.dist %>/qs.js',
+                template: 'templates/umd.hbs',
+                amdModuleId: 'qs',
+                indent: '  '
+            },
+            michi: {
+                src: 'lib/michi.js',
+                dest: '<%= clean.dist %>/michi.js',
+                template: '<%= umd.qs.template %>',
+                amdModuleId: 'michi',
+                indent: '    '
             }
         }
     });
@@ -70,6 +92,16 @@ module.exports = function (grunt) {
         'coverage:after'
     ]);
 
-    grunt.registerTask('default', [ 'test' ]);
+    grunt.registerTask('release', 'Build release version', [
+        'clean:dist',
+        'mkdir:dist',
+        'umd:qs',
+        'umd:michi'
+    ]);
+
+    grunt.registerTask('default', 'Run tests and build release version', [
+        'test',
+        'release'
+    ]);
 
 };

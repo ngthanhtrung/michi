@@ -1,0 +1,7 @@
+/.jshintrc
+
+/dist/
+/templates/
+/test/
+
+/Gruntfile.js

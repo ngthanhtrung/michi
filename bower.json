@@ -1,0 +1,24 @@
+{
+  "name": "michi",
+  "version": "0.0.4",
+  "description": "Simple URL router",
+  "homepage": "https://github.com/MeoGuru/michi",
+  "authors": [
+    "Meo <i@meo.guru>"
+  ],
+  "main": [
+    "dist/michi.js",
+    "dist/qs.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "lib",
+    "templates",
+    "test",
+    "*.md",
+    "Gruntfile.js",
+    "package.json"
+  ]
+}
