@@ -41,7 +41,6 @@
     
             this.uri = uri;
             this.method = method;
-            this.opts = {};
     
             this.idents = []; // identifiers
             this.identsByName = {};
@@ -63,6 +62,8 @@
         };
     
         this.where = function (conditions) {
+            this.conds = conditions || {};
+    
             for (var name in conditions) {
                 if (conditions.hasOwnProperty(name)) {
                     var ident = this.identsByName[name],
@@ -109,7 +110,7 @@
     
         this.options = function (opts) {
             if (typeof opts === 'undefined') {
-                return this.opts;
+                return (this.opts || {});
             }
     
             return (this.opts = opts || {});
