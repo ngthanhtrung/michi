@@ -1,12 +1,4 @@
-(function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        define('qs', factory);
-
-    } else if (typeof exports === 'object') {
-        factory(require, exports, module);
-    }
-
-}(function (require, exports, module) {
+define(function (require, exports, module) {
   /**
    * Object#toString() ref for stringify().
    */
@@ -374,4 +366,4 @@
     }
   }
   
-}));
+});

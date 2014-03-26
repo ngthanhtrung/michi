@@ -4,7 +4,7 @@
   "description": "Simple URL router",
   "homepage": "https://github.com/MeoGuru/michi",
   "authors": [
-    "Meo <i@meo.guru>"
+    "Meo <i@meo.guru> (http://meo.guru)"
   ],
   "main": [
     "dist/michi.js",

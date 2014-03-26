@@ -1,12 +1,4 @@
-(function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        define('michi', factory);
-
-    } else if (typeof exports === 'object') {
-        factory(require, exports, module);
-    }
-
-}(function (require, exports, module) {
+define(function (require, exports, module) {
     'use strict';
     
     var qs = require('qs'),
@@ -341,4 +333,4 @@
     
     };
     
-}));
+});
