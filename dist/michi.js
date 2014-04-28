@@ -101,11 +101,8 @@ define(function (require, exports, module) {
         };
     
         this.options = function (opts) {
-            if (typeof opts === 'undefined') {
-                return (this.opts || {});
-            }
-    
-            return (this.opts = opts || {});
+            this.opts = opts || {};
+            return this;
         };
     
         this.as = function (name) {
